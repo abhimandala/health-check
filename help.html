@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="resources/css/default.css" />
+		<link rel="stylesheet" href="resources/css/jquery.mobile-1.4.2.min.css" />
+		<script type="text/javascript" src="resources/js/jquery.js"></script>
+		<script type="text/javascript" src="resources/js/jquery.mobile-1.4.2.min.js"></script>
+		<!--[if IE]>
+			<link rel="stylesheet" type="text/css" href="resources/css/ie-only.css" />
+		<![endif]-->
+	</head>
+	<body class="bgMain">
+		<!--No Result Available-->
+		<div data-role="page" id="noRresultAvl" style="background: transparent" class="mainContent">
+			<div class="contentWrapper">
+				<div id="scoreHdr" data-role="header" class="headerLogo pageHdr">
+					<img src="resources/images/MPN10_Logo.png" alt="logo image" />	
+					<div class="fRight">
+						<!--<a href="#" id="backBtn" data-ajax="false"  data-transition="slide" class="btn fRight" data-icon='arrow-l'>Go Back</a>-->
+						<a href="javascript:history.go(-1)" id="backBtn1" data-ajax="false"  data-transition="slide" class="btn fRight din_promedium" data-icon='arrow-l'>Go Back</a>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div data-role="main" class="ui-content pageContent">
+					<div class="contentScroll">
+					<div class="hlpOuter din_promedium">
+						<p class="paraHdTxt">As this is your first time using MPN10 take a little time to familiarise yourself with how it works... </p>
+						<h2 class="headText din_probold">1) Select the "SCORE" option</h2>
+						<p class="paraColor">Select 'SCORE' to rate each of your symptoms from 0 to 10.  </p>
+						<div class="imgHdr01 clear">
+							<img src="resources/images/helpImg01_desktop.png" alt="Score Your Symptoms Button" />	
+						</div>
+						<h2 class="headText din_probold">2) Score each symptom</h2>
+						<p class="paraColor">The system defaults to 0 on your first visit and will calculate your answer as 0 unless you change it. After the first visit it will default to your last saved score setting. </p>
+						<div class="imgHdr02 clear">
+							<img src="resources/images/helpImg02_iphone.png" alt="Score Your Symptoms Button" />	
+						</div>	
+						<h2 class="headText din_probold">3) Save your symptom score</h2>
+						<p class="paraColor">When you tap 'SAVE & CONTINUE' you will be taken to the next symptom. Once all 10 syptoms have a score entered you will be automatically taken to a session review screen. </p>
+						<div class="imgHdr03 clear">
+							<img src="resources/images/helpImg03_iphone.png" alt="Score Your Symptoms Button" />	
+						</div>
+						<h2 class="headText din_probold">4) Review your session</h2>
+						<p class="paraColor">Before your scores are submitted and added to your tracker data you can review and edit each individual score if you wish to. </p>	
+						<div class="imgHdr04 clear">
+							<img src="resources/images/helpImg04_iphone.png" alt="Score Your Symptoms Button" />	
+						</div>
+						<h2 class="headText din_probold">5) View your scores</h2>
+						<p class="paraColor">Once submitted your session scores are entered into your tracker as the latest vertical column on the right of your chart. On this screen you can see your progress and share what you are looking at with your HCP.  The system defaults to the last 8 sessions submitted but you can scroll sideways through all the data you have ever inputted. PLEASE NOTE: your HCP will be sent whichever time period of results you are currently viewing on the screen. </p>							
+						<div class="imgHdr04 clear">
+							<img src="resources/images/helpImg04_iphone.png" alt="Score Your Symptoms Button" />	
+						</div>						
+					</div>
+					</div>
+				</div>	
+				<div data-role="footer" id="footerBar" class="footer footerDiv">
+					<div class="footerBtn fLeft">
+						<a href="home.html" data-transition="slide" class="homeBtn"> 
+							<img src="resources/images/HomeIconMob.png" alt="Home" />
+						</a>
+					</div>
+					<div class="fLeft footerLogo">
+						<img src="resources/images/MPN10_logoSml.png" alt="Help" /></br>					
+						<a href="#" data-rel="popup" onClick="openPrivacyPopUp()" data-position-to="window" class="privacyLink clear">Privacy Policy</a>
+					</div>
+					<div class="footerBtn fRight">
+						<a href="help.html" data-transition="slide" class="helpBtn fRight"> 
+							<img src="resources/images/helpIconMob.png" alt="Help" />
+						</a>
+					</div>
+					<div class="clear"></div>			
+				</div>
+			</div>
+		</div>			
+	</body>
+</html>

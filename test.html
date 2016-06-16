@@ -1,0 +1,107 @@
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Highcharts test tool - jsFiddle demo by highcharts</title>
+
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-git.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="/css/normalize.css">
+<link rel="stylesheet" type="text/css" href="/css/result-light.css">
+
+<style type="text/css">
+a {
+	padding-left: 20px;
+	padding-bottom: 50px;
+}
+</style>
+
+
+
+<script type="text/javascript">
+	//<![CDATA[ 
+	$(function() {
+		$('#container')
+				.highcharts(
+						{
+
+							exporting : {
+								url : 'http://export.highcharts.com/',
+								enabled : false
+
+							},
+							xAxis : {
+								categories : [ 'Jan', 'Feb', 'Mar', 'Apr',
+										'May', 'Jun', 'Jul', 'Aug', 'Sep',
+										'Oct', 'Nov', 'Dec' ]
+							},
+							series : [ {
+								data : [ 29.9, 71.5, 106.4, 129.2, 144.0,
+										176.0, 135.6, 148.5, 216.4, 194.1,
+										95.6, 54.4 ]
+							} ]
+						});
+
+		$('#export')
+				.click(
+						function() {
+							var obj = {}, chart;
+
+							chart = $('#container').highcharts();
+							obj.svg = chart.getSVG();
+							obj.type = 'image/png';
+							obj.width = 450;
+							obj.async = true;
+
+							$
+									.ajax({
+										type : 'post',
+										url : chart.options.exporting.url,
+										data : obj,
+										success : function(data) {
+											var exportUrl = this.url, imgContainer = $("#imgContainer");
+											$('<img>').attr('src',
+													exportUrl + data).attr(
+													'width', '250px').appendTo(
+													imgContainer);
+											$('<a>or Download Here</a>').attr(
+													'href', exportUrl + data)
+													.appendTo(imgContainer);
+											$('img').fadeIn();
+										}
+									});
+
+						});
+	});//]]>
+</script>
+
+
+</head>
+<body>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="http://code.highcharts.com/modules/exporting.js"></script>
+	<div id="container"
+		style="min-width: 300px; height: 300px; margin: 1em"
+		data-highcharts-chart="0">
+		
+	</div>
+	<button id="export">export</button>
+	<div id="imgContainer"></div>
+
+
+
+
+
+
+	<div id="window-resizer-tooltip">
+		<a href="#" title="Edit settings"
+			style="background-image: url(chrome-extension://kkelicaakdanhinjdeammmilcgefonfh/images/icon_19.png);"></a><span
+			class="tooltipTitle">Window size: </span><span class="tooltipWidth"
+			id="winWidth"></span> x <span class="tooltipHeight" id="winHeight"></span><br>
+		<span class="tooltipTitle">Viewport size: </span><span
+			class="tooltipWidth" id="vpWidth"></span> x <span
+			class="tooltipHeight" id="vpHeight"></span>
+	</div>
+</body>
+</html>

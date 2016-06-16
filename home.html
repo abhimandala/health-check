@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="resources/css/default.css" />
+		<link rel="stylesheet" href="resources/css/jquery.mobile-1.4.2.min.css" />
+		<script type="text/javascript" src="resources/js/jquery.js"></script>
+		<script type="text/javascript" src="resources/js/jquery.mobile-1.4.2.min.js"></script>
+		<script type="text/javascript" src="resources/js/main.js"></script>
+		<!--[if IE]>
+			<link rel="stylesheet" type="text/css" href="resources/css/ie-only.css" />
+		<![endif]-->
+	</head>
+	<body class="bgMain">
+		<div data-role="page" id="landingPage" style="background: transparent" class="mainContent">
+			<div class="contentWrapper">
+				<div id="scoreHdr" data-role="header" class="headerLogo pageHdr">
+					<img src="resources/images/MPN10_Logo.png" alt="logo image" />	
+					<div class="clear"></div>
+				</div>		
+				<!-- SEE YOUR SYMPTOMS -->
+				<div data-role="main" id="scorePanel" class="ui-content pageContent">
+					<div class="scoreBtnPnl">
+						<a href="symptom.html#page1" data-ajax="false"  data-transition="slide" id="scoreBtn" class="linkBtn fLeft">	
+							<p class="VAGRoundedStdBlack">10 </p>
+							<p class="txtScore din_promedium">SCORE</p>
+							<p class="txtScoreSml din_promedium">YOUR SYMPTOMS</p>
+						</a>
+						<div class="fLeft divArrow">
+							<img src="resources/images/chooseImgDsk.png" alt="Arrow" />
+						</div>
+						<a href="#" data-transition="slide" id="viewBtn" class="linkBtn fRight">
+							<p class="VAGRoundedStdBlack"><img src="resources/images/graph.png" alt="Graph" /></p>
+							<p class="txtScore">VIEW</p>
+							<p class="txtScoreSml">YOUR SCORES</p>
+						</a>						
+						<div class="clear divArrowBtm">
+							<img src="resources/images/chooseImgMob.png" alt="Arrow" />
+						</div>
+						<div class="clear"></div>
+
+					</div>
+				</div>		
+				
+				<div data-role="footer" id="footerBar" class="footer footerDiv">
+					<div class="footerBtn fLeft">
+						<a href="home.html" data-ajax="false" data-transition="slide" class="homeBtn"> 
+							<img src="resources/images/HomeIconMob.png" alt="Home" />
+						</a>
+					</div>
+					<div class="fLeft footerLogo">
+						<img src="resources/images/MPN10_logoSml.png" alt="Help" /></br>					
+						<a href="#" data-rel="popup" onClick="openPrivacyPopUp()" data-position-to="window" class="privacyLink clear">Privacy Policy</a>
+					</div>
+					<div class="footerBtn fRight">
+						<a href="help.html" data-transition="slide" class="helpBtn fRight"> 
+							<img src="resources/images/helpIconMob.png" alt="Help" />
+						</a>
+					</div>
+					<div class="clear"></div>			
+				</div>
+			</div>
+		</div>			
+	</body>
+</html>

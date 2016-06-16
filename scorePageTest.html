@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="resources/css/default.css" />
+		<link rel="stylesheet" href="resources/css/jquery.mobile-1.4.2.min.css" />
+		<script type="text/javascript" src="resources/js/jquery.js"></script>
+		<script type="text/javascript" src="resources/js/jquery.mobile-1.4.2.min.js"></script>
+		<script type="text/javascript" src="resources/js/main.js"></script>
+		<script type="text/javascript" src="resources/js/score.js"></script>		
+		<script type="text/javascript" src="resources/js/highcharts.js"></script>		
+		<script type="text/javascript" src="resources/js/exporting.js"></script>			
+		<script type="text/javascript" src="resources/js/canvas.js"></script>
+	</head>
+	<body class="bgMain">
+		<div data-role="page" id="scorePage" style="background: transparent">
+			<div data-role="header">
+				<div>
+					<h1>Session Review</h1>
+				</div>
+			</div>							
+			<div class="scorePanel">				
+				<h1 style="color :#fff">Total Score is </h1>
+				<div id="scoreBoard" clas="fLeft">
+					<canvas id="canvas" width="300" height="300" class="fLeft"></canvas>
+					<input data-mini="true" type="button" value="Scores" id="scoresBtn" class="fRight" />
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div data-role="main" class="ui-content pageHdr">
+				<div class="tableHdr">
+					<table style="width:100%;border-collapse:collapse">
+						<tbody>
+							<tr style="background-color:rgba(23,158,212,0.4)">
+								<th style="text-align:left" class="symptomsthTS">Symptoms</th>
+								<th class="scorethTS">Score</th>
+								<th class="editth">Edit</th>
+							</tr>
+							<tr style="background-color:rgba(37,161,136,0.2)"><td class="symptonstdTS" style="padding:0.5em;color:#fff">Fatigue</td><td class="scoretdTS" style="text-align:center;padding:0.5em;color:#fff">3</td><td class="edittd" style="text-align:center;padding:0.5em;color:#fff"><a href="#" class="editBtn">Edit</a></td></tr><tr style="background-color:rgba(37,161,136,0.2)"><td class="symptonstdTS" style="padding:0.5em;color:#fff">Filling up quickly</td><td class="scoretdTS" style="text-align:center;padding:0.5em;color:#fff">3</td><td class="edittd" style="text-align:center;padding:0.5em;color:#fff"><a href="#" class="editBtn">Edit</a></td></tr><tr style="background-color:rgba(37,161,136,0.2)"><td class="symptonstdTS" style="padding:0.5em;color:#fff">Abdominal discomfort</td><td class="scoretdTS" style="text-align:center;padding:0.5em;color:#fff">4</td><td class="edittd" style="text-align:center;padding:0.5em;color:#fff"><a href="#" class="editBtn">Edit</a></td></tr><tr style="background-color:rgba(37,161,136,0.2)"><td class="symptonstdTS" style="padding:0.5em;color:#fff">Inactivity</td><td class="scoretdTS" style="text-align:center;padding:0.5em;color:#fff">6</td><td class="edittd" style="text-align:center;padding:0.5em;color:#fff"><a href="#" class="editBtn">Edit</a></td></tr><tr style="background-color:rgba(37,161,136,0.2)"><td class="symptonstdTS" style="padding:0.5em;color:#fff">Problem with concerntration</td><td class="scoretdTS" style="text-align:center;padding:0.5em;color:#fff">7</td><td class="edittd" style="text-align:center;padding:0.5em;color:#fff"><a href="#" class="editBtn">Edit</a></td></tr><tr style="background-color:rgba(37,161,136,0.2)"><td class="symptonstdTS" style="padding:0.5em;color:#fff">Night Sweats</td><td class="scoretdTS" style="text-align:center;padding:0.5em;color:#fff">8</td><td class="edittd" style="text-align:center;padding:0.5em;color:#fff"><a href="#" class="editBtn">Edit</a></td></tr><tr style="background-color:rgba(37,161,136,0.2)"><td class="symptonstdTS" style="padding:0.5em;color:#fff">Itching (pruritus)</td><td class="scoretdTS" style="text-align:center;padding:0.5em;color:#fff">7</td><td class="edittd" style="text-align:center;padding:0.5em;color:#fff"><a href="#" class="editBtn">Edit</a></td></tr><tr style="background-color:rgba(37,161,136,0.2)"><td class="symptonstdTS" style="padding:0.5em;color:#fff">Bone pain</td><td class="scoretdTS" style="text-align:center;padding:0.5em;color:#fff">6</td><td class="edittd" style="text-align:center;padding:0.5em;color:#fff"><a href="#" class="editBtn">Edit</a></td></tr><tr style="background-color:rgba(37,161,136,0.2)"><td class="symptonstdTS" style="padding:0.5em;color:#fff">Fever</td><td class="scoretdTS" style="text-align:center;padding:0.5em;color:#fff">6</td><td class="edittd" style="text-align:center;padding:0.5em;color:#fff"><a href="#" class="editBtn">Edit</a></td></tr><tr style="background-color:rgba(37,161,136,0.2)"><td class="symptonstdTS" style="padding:0.5em;color:#fff">Unintentional weight loss</td><td class="scoretdTS" style="text-align:center;padding:0.5em;color:#fff">5</td><td class="edittd" style="text-align:center;padding:0.5em;color:#fff"><a href="#" class="editBtn">Edit</a></td></tr></tbody></table>
+				</div>
+				
+			</div>
+		</div>
+		<div data-role="page" id="scoreList" style="background: transparent">
+			<div data-role="main" class="ui-content pageHdr">
+				<!--<div class="tableHdr"></div>-->
+				<input data-mini="true" type="button" value="Scores" id="testBtn" />
+				<div id="chartContainer" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+			</div>
+		</div>
+		
+	</body>
+</html>

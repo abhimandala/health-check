@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="resources/css/default.css" />
+		<link rel="stylesheet" href="resources/css/jquery.mobile-1.4.2.min.css" />
+		<link rel="stylesheet" href="resources/css/dd.css" />
+		<script type="text/javascript" src="resources/js/jquery.js"></script>
+		<script type="text/javascript" src="resources/js/jquery.mobile-1.4.2.min.js"></script>
+		<script type="text/javascript" src="resources/js/main.js"></script>
+		<script type="text/javascript" src="resources/js/jquery.dd.js"></script>
+				
+		<!-- caurousel library -->
+		<link rel="stylesheet" href="resources/carousel/owl.theme.css" />
+		<link rel="stylesheet" href="resources/carousel/owl.carousel.css" />
+		<script type="text/javascript" src="resources/carousel/owl.carousel.min.js"></script>
+		<script type="text/javascript" src="resources/js/updateChart.js"></script>
+		<!--[if IE]>
+			<link rel="stylesheet" type="text/css" href="resources/css/ie-only.css" />
+		<![endif]-->
+		
+		
+		<!-- <script>(function($){var a=$.ui.mouse.prototype._mouseMove;$.ui.mouse.prototype._mouseMove=function(b){b.button=1;a.apply(this,[b]);}}(jQuery));</script>-->
+		
+		<script>
+		$().ready(function() {
+
+			function supports_input_placeholder() {
+				var i = document.createElement('input');
+				return 'placeholder' in i;
+			}
+			if (!supports_input_placeholder()) {
+				var fields = document.getElementsByTagName('INPUT');
+				for (var i = 0; i < fields.length; i++) {
+					if (fields[i].hasAttribute('placeholder')) {
+						fields[i].defaultValue = fields[i].getAttribute('placeholder');
+						fields[i].onfocus = function () { if (this.value == this.defaultValue) this.value = ''; }
+						fields[i].onblur = function () { if (this.value == '') this.value = this.defaultValue; }
+					}
+				}
+			}
+			// validate the comment form when it is submitted
+			//$("#emailForm").validate();	
+		});
+		</script>
+	</head>
+	<body class="bgMain">
+	<script src="resources/js/highcharts.js"></script>
+		<script src="resources/js/exporting.js"></script>
+		<script src="resources/js/rgbcolor.js"></script> 
+		<script src="resources/js/canvg.js"></script> 
+		<div data-role="page" id="scoreList" style="background: transparent" class="mainContent">
+			<div class="contentWrapper">
+				<div data-role="header" class="headerLogo sessionHdr">
+					<img src="resources/images/MPN10_Logo.png" alt="logo image" class="fLeft" />
+					<div class="sessionDiv">
+						<h1>SCORE OVER TIME</h1>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div data-role="main" id="scoreGraph" class="ui-content pageContent">
+					<div class="chartwidth">
+						<select name="selectSymptoms" id="selectSymptoms" data-role="none">
+							<!--<option value="Total Score">Total Score</option>
+							<option value="FATIGUE">Fatigue</option>
+							<option value="FILLLING UP QUICKLY<br>WHEN YOU EAT">Filling up quickly</option>
+							<option value="ABDOMINAL DISCOMFORT">Abdominal discomfort</option>
+							<option value="INACTIVITY">Inactivity</option>
+							<option value="PROBLEMS WITH<br>CONCENTRATION">Problem with concerntration</option>
+							<option value="NIGHT SWEATS">Night Sweats</option>
+							<option value="ITCHING(PRURITUS)">Itching (pruritus)</option>
+							<option value="BONE PAIN">Bone pain</option>
+							<option value="FEVER">Fever</option>
+							<option value="UNINTENTIONAL WEIGHT LOSS">Unintentional weight loss</option>-->
+						</select>
+						<div id="carouselCnt" class="owl-carousel owl-theme carousel-cnt" style="display: none"></div>
+						<div class="clear txtAlignCntr" style="width:100%;">
+							<a href="#shareScore" data-transition="slide" data-mini="true" id="shareScoreBtn" class="shareBtn">
+								<img src="resources/images/emailIcon.png" alt="Email" class="fLeft" width="32px" /> 
+								<span class="fLeft">SHARE MY SCORE</span>
+								<div class="clear"></div>
+							</a>
+						</div>					
+					</div>
+				</div>
+				<div data-role="footer" id="footerBar" class="footer footerDiv">
+					<div class="footerBtn fLeft">
+						<a href="home.html" data-transition="slide" data-transition="slide" class="homeBtn"> 
+							<img src="resources/images/HomeIconMob.png" alt="Home" />
+						</a>
+					</div>
+					<div class="fLeft footerLogo">
+						<img src="resources/images/MPN10_logoSml.png" alt="Help" /></br>					
+						<a href="#" data-rel="popup" onClick="openPrivacyPopUp()" data-position-to="window" class="privacyLink clear">Privacy Policy</a>
+					</div>
+					<div class="footerBtn fRight">
+						<a href="help.html" data-transition="slide" class="helpBtn fRight"> 
+							<img src="resources/images/helpIconMob.png" alt="Help" />
+						</a>
+					</div>
+					<div class="clear"></div>			
+				</div>
+			</div>
+		</div>	
+		<div data-role="page" id="shareScore" style="background: transparent" class="mainContent">
+			<div class="contentWrapper">
+				<div id="scoreHdr" data-role="header" class="headerLogo pageHdr">
+					<img src="resources/images/MPN10_Logo.png" alt="logo image" />	
+					<div class="clear"></div>
+				</div>		
+				<div data-role="main" class="ui-content pageHdr formPnl">
+					<form action="SendEmail1.jsp" data-ajax="false" method="POST" id="emailForm" name="emailForm" >
+						<div>
+							<!-- <input type="hidden" name="senderName" id="senderName" value="Liquidhub helpdesk" /> -->
+							<!-- <h1 style="color:#fff"  id="sender"></h1> -->
+							
+							<label for="fromEmail" class="formLbl">FROM:</label>
+							<input type="text" name="senderName" id="senderName" placeholder="Sender Name" value="" required />
+							<input type="email" name="fromEmail" id="fromEmail" value="" placeholder="Email" data-theme="a" required>
+							
+							<label for="toEmail" class="formLbl">TO:</label>
+							<input type="email" name="toEmail" id="toEmail" value="" placeholder="Email" data-theme="a" required>
+							
+							<!-- <input type="hidden" name="fromEmail"  id="fromEmail" value="awm.liquidhub@gmail.com"/>	-->						
+							<input type="hidden" name="userName" id="userName" value="awm.liquidhub@gmail.com"/>						
+							<input type="hidden" name="userPassword" id="userPassword" value="Pass$123"/><br>
+													
+							<label for="emailSubject" class="formLbl">SUBJECT:</label>
+							<input type="text" name="emailSubject" id="emailSubject" value="" placeholder="Subject" data-theme="a">	
+																	
+							<label for="ebody" class="formLbl">DESCRIPTION:</label>
+							<textarea for="ebody" id="ebody" name="ebody" rows="10" cols="50"></textarea>
+							
+							<input type="hidden" name="emailBody" id="emailBody" value=""/><br>
+							
+							<input type="hidden" name="emailHost" id="emailHost" value="smtp.gmail.com"/>
+																	
+							<label for="filepath" class="formLbl">IMAGE:</label>
+							<div><img id="imagePnl" class="imagePnl"></div>
+							
+							<input type="hidden" value="" id="filePath" name="filePath">
+							
+							<input type="Submit" name="Submit" value="Submit" class="submitBtn" id="submitForm"></input>
+						</div>
+					</form>
+				</div>			
+				<div data-role="footer" id="footerBar" class="footer footerDiv">
+					<div class="footerBtn fLeft">
+						<a href="home.html" data-transition="slide" class="homeBtn"> 
+							<img src="resources/images/HomeIconMob.png" alt="Home" />
+						</a>
+					</div>
+					<div class="fLeft footerLogo">
+						<img src="resources/images/MPN10_logoSml.png" alt="Help" /></br>					
+						<a href="#" data-rel="popup" onClick="openPrivacyPopUp()" data-position-to="window" class="privacyLink clear">Privacy Policy</a>
+					</div>
+					<div class="footerBtn fRight">
+						<a href="help.html" data-ajax="false" data-transition="slide" class="helpBtn fRight"> 
+							<img src="resources/images/helpIconMob.png" alt="Help" />
+						</a>
+					</div>
+					<div class="clear"></div>			
+				</div>
+			</div>
+		</div>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="resources/css/default.css" />
+		<link rel="stylesheet" href="resources/css/jquery.mobile-1.4.2.min.css" />
+		<script type="text/javascript" src="resources/js/jquery.js"></script>
+		<script type="text/javascript" src="resources/js/jquery.mobile-1.4.2.min.js"></script>
+		<script type="text/javascript" src="resources/js/main.js"></script>
+		<!--[if IE]>
+			<script type="text/javascript" src="resources/js/excanvas.js"></script>
+			<link rel="stylesheet" type="text/css" href="resources/css/ie-only.css" />
+		<![endif]-->
+		
+		<script>
+		$(function() {
+		
+			//Current Date Function
+			var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+			var dayNames= ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+			var newDate = new Date();
+			//newDate.setDate(newDate.getDate() + 1);    
+			$('#date').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
+			//End Current Date Function
+	
+			var saveScore = (localStorage.getItem('UserScore')) ? JSON.parse(localStorage.getItem('UserScore')) : {};
+			
+			var html = '';
+			total = 0;
+			
+			$.each(saveScore, function (pagename, data) {
+				
+				loggerMsg(pagename);
+				
+				if(pagename != "datadate"){
+					html += '<tr><td class="symptonstdTS">'+data.symptom+'</td><td class="scoretdTS">'+data.score+'</td><td class="edittd">';
+					html += '<a class="editBtn" data-ajax="false" href="symptom.html?edit#'+pagename+'">Edit <img src="resources/images/editIcon.png" alt="Edit"/></a></td></tr>';
+					total += data.score;
+				}
+				
+			});
+			$('#tblScoreContent').html(html);
+		});
+		</script>
+		<script type="text/javascript" src="resources/js/canvas.js"></script>
+	</head>
+	<body class="bgMain">		
+		<div data-role="page" id="scorePage" style="background: transparent" class="mainContent">
+			<div class="contentWrapper">
+				<div data-role="header" class="headerLogo sessionHdr">
+					<img src="resources/images/MPN10_Logo.png" alt="logo image" class="fLeft" />
+					<div class="sessionDiv">
+						<h1 class="VAGRoundedStdBlack">Session Review</h1>
+						<p id="date" class="din_promedium"></p>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<!--<div data-role="header">
+					<div>
+						<h1>Session Review <span id="date"></span></h1>
+					</div>
+				</div>	-->
+				<div data-role="main" class="ui-content sessionContent">
+					<div class="scorePage">
+						<div class="scorePanel">				
+							<h1 style="color :#fff" class="VAGRoundedStdBlack">TOTAL SCORE</h1>
+							<div id="scoreBoard" clas="fLeft column50">
+								<canvas id="canvas" width="230" height="230" class="fLeft VAGRoundedStdBlack"></canvas>
+							</div>
+							<div class="fRight column40">
+								<a href="graph.html" data-ajax="false" data-mini="true" id="scoresBtn" class="btnSubmit din_promedium">SUBMIT SCORE</a>
+							</div>				
+							<div class="clear"></div>
+						</div>
+						<div class="tableHdr">
+							<table style="width:100%;border-collapse:collapse">
+								<tbody id="tblScoreContent"></tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div data-role="footer" id="footerBar" class="footer footerDiv">
+					<div class="footerBtn fLeft">
+						<a href="home.html" data-transition="slide" class="homeBtn"> 
+							<img src="resources/images/HomeIconMob.png" alt="Home" />
+						</a>
+					</div>
+					<div class="fLeft footerLogo">
+						<img src="resources/images/MPN10_logoSml.png" alt="Help" /></br>				
+						<a href="#" data-rel="popup" onClick="openPrivacyPopUp()" data-position-to="window" class="privacyLink clear">Privacy Policy</a>
+					</div>
+					<div class="footerBtn fRight">
+						<a href="help.html" data-transition="slide" class="helpBtn fRight"> 
+							<img src="resources/images/helpIconMob.png" alt="Help" />
+						</a>
+					</div>
+					<div class="clear"></div>			
+				</div>
+			</div>
+		</div>	
+	</body>
+</html>

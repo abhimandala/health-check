@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="resources/css/default.css" />
+		<link rel="stylesheet" href="resources/css/jquery.mobile-1.4.2.min.css" />
+		<script type="text/javascript" src="resources/js/jquery.js"></script>
+		<script type="text/javascript" src="resources/js/jquery.mobile-1.4.2.min.js"></script>
+		<script type="text/javascript" src="resources/js/main.js"></script>
+		<script type="text/javascript" src="resources/js/score.js"></script>		
+		<script type="text/javascript" src="resources/js/highcharts.js"></script>		
+		<script type="text/javascript" src="resources/js/exporting.js"></script>			
+		<script type="text/javascript" src="resources/js/canvas.js"></script>
+		<style>
+			.ui-mobile, .ui-mobile body {
+					height:100% !important;
+				}
+		</style>
+		
+	</head>
+	<body class="bgMain" style="height:100% !important">
+		<div data-role="page" id="splash" style="background: transparent"> 
+		  <div class="splashImg">
+			<img src="resources/images/MPN10_Logo.png" alt="splash image" />
+		  </div>
+		</div>
+		
+	
+		<script type="text/javascript">
+		
+			$('#splash').ready() 
+			{
+				//$('#main').load('file.html');
+				setTimeout(function() {
+					//$('#main').ready(function() {
+						$('#splash').remove();
+						if( localStorage.getItem('showPrivacyPage') ) {
+							window.location.href = "home.html";
+						}else{
+							window.location.href = "privacy.html";
+						}
+					//});
+				}, 2000);
+			}
+		</script>
+	</body>
+</html>
